@@ -106,7 +106,12 @@
 
         <!-- Project Cards -->
         <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-left">
-          <img src="images/proj-bci-robot.jpg" class="w-full h-56 object-cover">
+            <img 
+               src="./images/proj-bci-robot.png" 
+               alt="Wireless EMG-Controlled Assistive Robot"
+               loading="lazy"
+               class="w-full h-56 object-cover"
+               onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/<your-username>/<your-repo>/main/images/proj-bci-robot.png';" >
           <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
             <p class="text-gray-400 mb-4 flex-grow">An EMG-based BCI system enabling users to control a robot through facial muscle activity, achieving ~30ms latency.</p>
