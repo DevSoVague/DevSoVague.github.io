@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Devavrath Sandeep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .dynamic-background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+            background-size: cover; background-position: center center; filter: blur(8px);
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative; z-index: 10;
+        }
+        header, footer {
+            background-color: #111111;
+            position: relative; z-index: 20;
+        }
+        
+        /* Timeline Styles */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #4a5568; /* gray-600 */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #111111;
+            border: 4px solid #667eea; /* indigo-500 */
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-left { left: 0; }
+        .timeline-right { left: 50%; }
+        .timeline-left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #2d3748; /* gray-700 */
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #2d3748;
+        }
+        .timeline-right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #2d3748; /* gray-700 */
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #2d3748 transparent transparent;
+        }
+        .timeline-right::after { left: -16px; }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #1a202c; /* gray-800 */
+            border: 1px solid #2d3748; /* gray-700 */
+            position: relative;
+            border-radius: 6px;
+        }
+
+        /* --- Scroll Animation Classes --- */
+        .scroll-animate {
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.9s ease-out;
+            will-change: transform, opacity;
+        }
+        .slide-in-left { transform: translateX(-100px); }
+        .slide-in-right { transform: translateX(100px); }
+        .fade-in-up { transform: translateY(40px); }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+
+        /* Responsive Timeline */
+        @media screen and (max-width: 768px) {
+            .timeline-container::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid #2d3748;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #2d3748 transparent transparent;
+            }
+            .timeline-left::after, .timeline-right::after { left: 15px; }
+            .timeline-right { left: 0%; }
+            .slide-in-left, .slide-in-right { transform: translateX(0) translateY(40px); }
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1517673130006-b13c5d63f07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+
+    <header class="bg-[#111111] shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html#about" class="hover:text-indigo-400 transition duration-300">About</a></li>
+                <li><a href="education.html" class="text-indigo-400 font-bold transition duration-300">Education</a></li>
+                <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
+                <li><a href="projects.html" class="hover:text-indigo-400 transition duration-300">Projects</a></li>
+                <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
+                <li><a href="index.html#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="education-timeline" class="py-20 min-h-screen">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-animate fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold">Education & Experience</h1>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mt-6 rounded"></div>
+            </div>
+            
+            <div class="timeline-container">
+                
+                <!-- CMU -->
+                <div class="timeline-item timeline-left scroll-animate slide-in-left">
+                    <div class="timeline-content">
+                        <h2 class="text-2xl font-bold text-white mb-2">Carnegie Mellon University</h2>
+                        <span class="text-sm text-indigo-400 font-semibold">Aug 2025 – Expected Dec 2026</span>
+                        <p class="text-lg font-medium text-gray-300 mt-3">Master of Science, AI Engineering - Biomedical</p>
+                        <p class="text-gray-400 mt-2">
+                            Advanced studies in machine learning, BCI, and AI systems. Current coursework includes "Systems Tool Chain for AI" and "ML/AI for Engineers."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CBRAIN Internship -->
+                <div class="timeline-item timeline-right scroll-animate slide-in-right">
+                    <div class="timeline-content">
+                        <h2 class="text-2xl font-bold text-white mb-2">Centre for Brain Research, IISc</h2>
+                        <span class="text-sm text-teal-400 font-semibold">Jun 2024 – Aug 2024</span>
+                        <p class="text-lg font-medium text-gray-300 mt-3">CBRAIN Research Intern</p>
+                        <p class="text-gray-400 mt-2">
+                            Built a bioinformatics pipeline on HPC clusters to estimate genetic risk scores (PRS) for Parkinson's in Indian populations using GWAS data.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reliance Internship -->
+                <div class="timeline-item timeline-left scroll-animate slide-in-left">
+                    <div class="timeline-content">
+                        <h2 class="text-2xl font-bold text-white mb-2">Reliance Life Sciences</h2>
+                        <span class="text-sm text-teal-400 font-semibold">May 2024 – Jun 2024</span>
+                        <p class="text-lg font-medium text-gray-300 mt-3">Industry Research Intern - Regenerative Medicine</p>
+                        <p class="text-gray-400 mt-2">
+                            Executed stem cell analysis via flow cytometry (CD34/CD45 markers), performed HLA typing for transplant compatibility, and processed apheresis samples.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- IIT Jodhpur -->
+                <div class="timeline-item timeline-right scroll-animate slide-in-right">
+                    <div class="timeline-content">
+                        <h2 class="text-2xl font-bold text-white mb-2">Indian Institute of Technology, Jodhpur</h2>
+                        <span class="text-sm text-indigo-400 font-semibold">Jul 2021 – May 2025</span>
+                        <p class="text-lg font-medium text-gray-300 mt-3">Bachelor of Technology, Bioengineering</p>
+                        <p class="text-gray-400 mt-2">
+                            Graduated in the Top 1% of the department (GPA: 7.97/10). Completed a specialization in the "Science of Intelligence" focusing on neuroscience and BCI.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Teaching Assistant -->
+                <div class="timeline-item timeline-left scroll-animate slide-in-left">
+                    <div class="timeline-content">
+                        <h2 class="text-2xl font-bold text-white mb-2">Teaching Assistant, IIT Jodhpur</h2>
+                        <span class="text-sm text-teal-400 font-semibold">Aug 2022 – Dec 2022</span>
+                        <p class="text-lg font-medium text-gray-300 mt-3">Introduction to Bioengineering</p>
+                        <p class="text-gray-400 mt-2">
+                            Facilitated learning for 236 undergraduate students by coordinating assignments, quizzes, and grading, ensuring timely feedback.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Devavrath Sandeep. All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null, rootMargin: '0px', threshold: 0.2
+            };
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
+

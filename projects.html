@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Devavrath Sandeep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .dynamic-background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+            background-size: cover; background-position: center center; filter: blur(8px);
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative; z-index: 10;
+        }
+        header, footer {
+            background-color: #111111;
+            position: relative; z-index: 20;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        .modal-content {
+            position: relative;
+            background-color: #1a202c; /* Darker than gray-900 */
+            border: 1px solid #2d3748;
+            border-radius: 0.5rem;
+            max-width: 48rem; /* max-w-3xl */
+            margin: 0 auto;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.visible {
+            display: block;
+            opacity: 1;
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            color: #a0aec0;
+            font-size: 1.5rem;
+            line-height: 1;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .modal-close-btn:hover {
+            color: #ffffff;
+        }
+        
+        /* --- Scroll Animation Classes --- */
+        .scroll-animate {
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.9s ease-out;
+            will-change: transform, opacity;
+        }
+        .slide-in-left {
+            transform: translateX(-100px);
+        }
+        .slide-in-right {
+            transform: translateX(100px);
+        }
+        .fade-in-up {
+            transform: translateY(40px);
+        }
+        /* The state when the element is visible */
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%D&auto.format&fit=crop&w=1920&q=80');"></div>
+
+    <header class="bg-[#111111] shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html#about" class="hover:text-indigo-400 transition duration-300">About</a></li>
+                <li><a href="education.html" class="hover:text-indigo-400 transition duration-300">Education</a></li>
+                <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
+                <li><a href="projects.html" class="text-indigo-400 font-bold transition duration-300">Projects</a></li>
+                <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
+                <li><a href="index.html#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="all-projects" class="py-20 min-h-screen">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-animate fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold">All Projects</h1>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mt-6 rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <!-- Project Card 1: BCI Robot -->
+                <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-left">
+                    <!-- *** UPDATED to <img> tag with web URL *** -->
+                    <img src="https://images.unsplash.com/photo-1678483787716-026f86ab33f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Assistive BCI Robotics" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity, achieving a low-latency (~30ms) control scheme.</p>
+                        <button data-project-id="bciRobot" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2: Alzheimer's Prediction -->
+                <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-right">
+                    <!-- *** UPDATED to <img> tag with web URL *** -->
+                    <img src="https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="AI-Powered Diagnosis" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Built a CNN-based pipeline using MRI brain scans (ADNI dataset) to predict the onset of Alzheimer's, achieving 97.34% test accuracy.</p>
+                        <button data-project-id="alzheimersCnn" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3: SCLC Research -->
+                <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-left">
+                    <!-- *** UPDATED to <img> tag with web URL *** -->
+                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cancer Resistance Research" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">SCLC Chemotherapy Resistance Research</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Identified CK1ε as a potential therapeutic target for overcoming chemotherapy resistance in Small Cell Lung Cancer (SCLC).</p>
+                        <button data-project-id="sclcResearch" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: Parkinson's Genetic Risk -->
+                <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-right">
+                    <!-- *** UPDATED to <img> tag with web URL *** -->
+                    <img src="https://images.unsplash.com/photo-1618264353051-71c1de1a23f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Genomic Risk Scoring" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Built a bioinformatics research pipeline on HPC clusters for genetic risk score estimation in Parkinson's, applying GWAS methods.</p>
+                        <button data-project-id="gwasPipeline" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: Dusky Crag Martins -->
+                <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-left">
+                    <!-- *** UPDATED to <img> tag with web URL *** -->
+                    <img src="https://images.unsplash.com/photo-1516589178581-6ba328f1387a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bioinspired Construction" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Bioinspired Construction from Avian Nests</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Analyzed soil composition and nest structures of Dusky Crag Martins to derive bioinspired insights for sustainable construction.</p>
+                        <button data-project-id="avianNesting" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Project Card 6: Med-Tech Malnourishment -->
+                <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col scroll-animate slide-in-right">
+                    <!-- *** UPDATED to <img> tag with web URL *** -->
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="IoT Health Screening" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Med-Tech Device for Malnutrition Screening</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Designed an IoT and computer vision device for rapid, non-invasive malnutrition screening in children for resource-limited settings.</p>
+                        <button data-project-id="medTechDevice" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Devavrath Sandeep. All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content p-6 md:p-8">
+            <button id="modal-close" class="modal-close-btn">&times;</button>
+            <img id="modal-image" src="" alt="Project Image" class="w-full h-56 md:h-72 object-cover rounded-lg mb-6 opacity-80">
+            <h2 id="modal-title" class="text-3xl font-bold text-white mb-4"></h2>
+            <div id="modal-description" class="text-gray-300 leading-relaxed space-y-4 max-h-[50vh] overflow-y-auto pr-2">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- THIS IS WHERE YOU CAN EDIT YOUR PROJECT DETAILS ---
+        const projectData = {
+            bciRobot: {
+                title: "Wireless EMG-Controlled Assistive Robot",
+                image: "https://images.unsplash.com/photo-1678483787716-026f86ab33f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: `
+                    <p>This project, part of the NeuroTech BCI Hackathon, involved engineering a complete wireless EMG-based Brain-Computer Interface (BCI). The system was designed to empower quadriplegic users by enabling them to control an assistive robot using only facial muscle activity.</p>
+                    <p class="font-semibold text-white mt-4">Key Features & Achievements:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Enabled multi-level robot control (speed, slow, emergency stop) using simple, intuitive gestures like clenching and eyebrow raising.</li>
+                        <li>Programmed real-time signal acquisition and analysis pipelines using Arduino IDE, Python (PyLSL, OpenVIBE), and BioAmp EXG Pill EMG modules.</li>
+                        <li>Achieved an ultra-low latency of approximately 30ms, which is crucial for a responsive and seamless user experience.</li>
+                        <li>Delivered a non-overlapping, multi-level control scheme to prevent accidental commands.</li>
+                        <li>Successfully demonstrated full, real-time robot control, validating the system's potential for assistive technology.</li>
+                    </ul>
+                `
+            },
+            alzheimersCnn: {
+                title: "Deep Learning for Alzheimer's Prediction",
+                image: "https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: `
+                    <p>This project aimed to harness Deep Learning to aid in the early detection of Alzheimer's Disease, a progressive neurodegenerative disorder. The primary challenge was identifying structural changes, such as hippocampal atrophy, from MRI images.</p>
+                    <p>We built a Convolutional Neural Network (CNN) pipeline to analyze MRI brain scans from the ADNI dataset. A significant challenge was the severe class imbalance in the dataset (e.g., thousands of 'Non_Demented' scans vs. very few 'Moderate_Demented').</p>
+                    <p class="font-semibold text-white mt-4">Methodology & Results:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Overcame class imbalance using the Synthetic Minority Oversampling Technique (SMOTE), which generated synthetic samples for minority classes to create a balanced dataset.</li>
+                        <li>Optimized the model using HE initialization, the Adam optimizer, and a learning rate scheduler, which led to much faster convergence and better performance.</li>
+                        <li>Conducted extensive experiments, including variations with/without early stopping and hyperparameter tuning for batch size and learning rates.</li>
+                        <li>The best-performing model achieved an F1 score of 0.98 and a test accuracy of 97.34%, with only 34 misclassifications.</li>
+                        <li>This validated the CNN's robustness for clinical medical image analysis and its potential for deployment as an early detection tool.</li>
+                    </ul>
+                `
+            },
+            sclcResearch: {
+                title: "Identifying the Role of CK1ε in Cisplatin-Resistant SCLC Cells",
+                image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: `
+                    <p>This was my B.Tech Capstone Project, addressing the critical challenge of chemotherapy resistance in Small Cell Lung Cancer (SCLC), a disease with a 5-year survival rate of less than 5%.</p>
+                    <p>The research focused on the protein CK1ε (Casein Kinase 1 epsilon), which is implicated in pathways that regulate cell survival and proliferation, such as the Wnt/β-catenin and PI3K/AKT pathways. The hypothesis was that inhibiting CK1ε could re-sensitize resistant cancer cells to chemotherapy.</p>
+                    <p class="font-semibold text-white mt-4">Research & Findings:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Established and verified cisplatin resistance profiles in SCLC cell lines (H69 vs. the resistant H69AR) using MTT viability assays. The H69AR cells showed significantly higher viability at the same drug concentrations.</li>
+                        <li>Performed lentiviral shRNA transfection to achieve stable CK1ε gene knockdown, validated via GFP-based selection and fluorescence microscopy.</li>
+                        <li>Successfully demonstrated that the inhibition (knockdown) of CK1ε re-sensitized the resistant H69AR cells to cisplatin, significantly enhancing apoptosis (cell death).</li>
+                        <li>The research identified CK1ε as a promising therapeutic target for overcoming chemotherapy resistance in SCLC, with future plans for validation via Western Blot, FACS, and Transwell assays.</li>
+                    </ul>
+                `
+            },
+            gwasPipeline: {
+                title: "Genetic Risk Score Pipeline for Parkinson's",
+                image: "https://images.unsplash.com/photo-1618264353051-71c1de1a23f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: `
+                    <p>During my research internship at the Centre for Brain Research (IISc), I developed a bioinformatics research pipeline on High-Performance Computing (HPC) clusters to estimate genetic risk scores for Parkinson's disease (PD) in Indian populations.</p>
+                    <p>The utility of European-derived genetic risk scores is relatively unknown in non-European populations. This project aimed to bridge that gap by applying Polygenic Risk Scores (PRS) to cohorts from the Genome India and SKAN projects, using European GWAS summary statistics as a base.</p>
+                    <p class="font-semibold text-white mt-4">Core Contributions:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Built the pipeline in Linux/Python for genetic risk score estimation, applying PLINK and Genome-Wide Association Studies (GWAS) methods.</li>
+                        <li>Performed rigorous data cleaning and QC, including HWE filtering, MAF filtering, and LD pruning.</li>
+                        <li>Compared three different PRS software tools: PLINK2 (straightforward but poor differentiation), PRSice-2 (better, but unexpected negative scores), and LDPred-2.</li>
+                        <li>Determined that LDPred-2 (specifically the LDpred-inf model) performed the best, as it accounts for linkage disequilibrium (LD) and provided the most realistic risk estimates, with cases peaking at a positive PRS and controls at a negative one.</li>
+                        <li>The final product was a reproducible workflow that enables scalable genomic analysis across diverse Indian cohorts, enhancing population-specific insights into Parkinson's.</li>
+                    </ul>
+                `
+            },
+            avianNesting: {
+                title: "Bioinspired Construction from Avian Nests",
+                image: "https://images.unsplash.com/photo-1516589178581-6ba328f1387a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: `
+                    <p>This long-term research project investigated the adaptive nesting strategies of Dusky Crag Martins (Ptyonoprogne concolor) in harsh desert ecoregions.</p>
+                    <p>We were interested in how the bird built structurally strong nests with sandy soil, and how we could mimic this for bio-inspired construction.</p>
+                    <p class="font-semibold text-white mt-4">Analysis & Application:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Analyzed soil composition and nest micro-structures using SEM/FE-SEM to understand their remarkable stability and properties critical to desert survival.</li>
+                        <li>Authored a research paper (<strong><a href="https://www.biorxiv.org/content/10.1101/2024.09.18.613807v1" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">Preprint available on bioRxiv</a></strong>) deriving bioinspired insights from the nest resilience for sustainable construction and eco-friendly building materials.</li>
+                        <li>This work was presented to the Prime Minister's Scientific Committee, highlighting its potential for translating ecological observations into real-world engineering applications.</li>
+                    </ul>
+                `
+            },
+            medTechDevice: {
+                title: "Med-Tech Device for Malnutrition Screening",
+                image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: `
+                    <p>In collaboration with doctors from AIIMS Jodhpur, this project focused on designing a Med-Tech product to tackle malnutrition in resource-limited settings.</p>
+                    <p class="font-semibold text-white mt-4">Device & Impact:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Designed an IoT and computer vision-based device for rapid, non-invasive malnutrition screening in children.</li>
+                        <li>Developed a portable, user-friendly product that integrates key health metrics (BMI, weight-for-age, height-for-age) into a digital interface for real-time nutritional assessment.</li>
+                        <li>The device was demonstrated at the 25th ACM International Conference on Multimodal Interaction (ICMI 2023), showcasing its potential to significantly impact public health initiatives.</li>
+                    </ul>
+                `
+            }
+        };
+
+        // --- Modal Functionality & Scroll Animation (Combined DOMContentLoaded) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Modal Logic ---
+            const modal = document.getElementById('project-modal');
+            if (modal) {
+                const modalCloseBtn = document.getElementById('modal-close');
+                const modalTitle = document.getElementById('modal-title');
+                const modalImage = document.getElementById('modal-image');
+                const modalDescription = document.getElementById('modal-description');
+                const detailButtons = document.querySelectorAll('.view-details-btn');
+                
+                detailButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault(); 
+                        const projectId = button.dataset.projectId;
+                        const data = projectData[projectId];
+                        
+                        if (data) {
+                            modalTitle.textContent = data.title;
+                            modalImage.src = data.image; // Set modal image
+                            modalImage.alt = data.title;
+                            modalDescription.innerHTML = data.description;
+                            
+                            modal.classList.add('visible');
+                            document.body.style.overflow = 'hidden'; 
+                        }
+                    });
+                });
+
+                const closeModal = () => {
+                    modal.classList.remove('visible');
+                    document.body.style.overflow = 'auto'; 
+                };
+
+                modalCloseBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('visible')) {
+                        closeModal();
+                    }
+                });
+            }
+
+            // --- Scroll Animation Logic ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+    </script>
+</body>
+</html>
+
