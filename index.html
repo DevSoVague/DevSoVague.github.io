@@ -101,16 +101,10 @@
 <body class="text-gray-200">
 
     <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('images/red_dust.jpg'); opacity: 1;"></div>
-    
     <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('images/water.png'); opacity: 0;"></div>
-    
     <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('images/crab.jpg'); opacity: 0;"></div>
-    
-    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('images/tower_gemini.png'); opacity: 0;"></div>
-    
-    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-
-    <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('images/gargantula.png'); opacity: 0;"></div>
+    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('images/gargantula.png'); opacity: 0;"></div>
 
     <header class="bg-[#111111] shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -228,14 +222,14 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75" >
+                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
                         <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
-                    <img src="images/proj-alzheimers-cnn.png" class="w-full h-56 object-cover opacity-75" alt="Crab microscopy image">
+                    <img src="images/proj-alzheimers-cnn.png" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
                         <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
@@ -270,7 +264,7 @@
                 </div>
                 <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
                     <h3 class="text-xl font-semibold text-white">Creative & Media</h3>
-                    <p class="text-gray-400 mt-2">Festival Chief for FRAMED (Photography Fest) and Secretary of Shutterbugs Society.</p>
+                    <p class="text-gray-400 mt-2"> Secretary of Shutterbugs, the Photography Society and Executive member of the Biosciences and Bioengineering Society.</p>
                 </div>
                 <div class="summary-card rounded-lg p-6 scroll-animate slide-in-right">
                     <h3 class="text-xl font-semibold text-white">Team & Competition</h3>
@@ -313,9 +307,6 @@
             <div class="text-center mt-16 scroll-animate fade-in-up" style="animation-delay: 400ms;">
                 <h2 class="text-2xl font-bold mb-6">Connect with Me</h2>
                 <div class="flex justify-center space-x-8">
-                    <a href="mailto:dsandeep@andrew.cmu.edu" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
-                        Email: dsandeep@andrew.cmu.edu
-                    </a>
                     <a href="https://www.instagram.com/ephemerallyvague?igsh=eno1ZXNxbDQxeG5h" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
                         Instagram: @ephemerallyvague
                     </a>
@@ -384,58 +375,44 @@
             const elementsToAnimate = document.querySelectorAll('.scroll-animate');
             elementsToAnimate.forEach(el => observer.observe(el));
             
-            // --- Background Fade on Scroll (Handles 6 backgrounds, mapping to sections) ---
+            // --- Background Fade on Scroll (Handles 5 backgrounds) ---
             const bgElements = [
                 document.getElementById('dynamic-bg-1'), // Hero & About
-                document.getElementById('dynamic-bg-2'), // Education
-                document.getElementById('dynamic-bg-3'), // Skills
-                document.getElementById('dynamic-bg-4'), // Projects
-                document.getElementById('dynamic-bg-5'), // Activities
-                document.getElementById('dynamic-bg-6')  // Contact
+                document.getElementById('dynamic-bg-2'), // Education & Skills
+                document.getElementById('dynamic-bg-3'), // Projects
+                document.getElementById('dynamic-bg-4'), // Activities
+                document.getElementById('dynamic-bg-5')  // Contact
             ];
             const sections = [
-                document.getElementById('about'),
-                document.getElementById('education'),
-                document.getElementById('skills'),
+                document.querySelector('.hero-bg'), // Start of page
+                document.getElementById('education'), 
                 document.getElementById('projects'),
                 document.getElementById('extracurricular'),
-                document.getElementById('contact')
+                document.getElementById('contact') 
             ];
 
             const updateBackgrounds = () => {
                 const scrollY = window.scrollY;
                 const viewHeight = window.innerHeight;
                 
-                // Keep BG 1 visible at the very top (Hero/Name)
-                if (scrollY < 100) { 
-                    if (bgElements[0]) bgElements[0].style.opacity = 1;
-                    for (let i = 1; i < bgElements.length; i++) {
-                        if (bgElements[i]) bgElements[i].style.opacity = 0;
-                    }
-                    return;
-                }
+                let activeBackgroundIndex = 0; 
+                const triggerOffset = viewHeight / 2; // Trigger transition when section is halfway up the screen
 
-                let activeSectionIndex = -1;
-                let minDistance = Infinity;
-
-                for (let i = 0; i < sections.length; i++) {
-                    if (!sections[i]) continue;
-                    const rect = sections[i].getBoundingClientRect();
-                    const distance = Math.abs(rect.top + rect.height / 2 - viewHeight / 2);
-                    
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        activeSectionIndex = i;
-                    }
+                if (scrollY < sections[1].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 0; // Hero/About
+                } else if (scrollY < sections[2].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 1; // Education/Skills
+                } else if (scrollY < sections[3].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 2; // Projects
+                } else if (scrollY < sections[4].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 3; // Activities
+                } else {
+                    activeBackgroundIndex = 4; // Contact
                 }
-                
-                // For Hero/About (activeSectionIndex 0), we want BG 1. 
-                // For Education (activeSectionIndex 1), we want BG 2.
-                // The index offset is 0 for About, so we use activeSectionIndex.
                 
                 bgElements.forEach((bg, index) => {
                     if (!bg) return;
-                    if (index === activeSectionIndex) { 
+                    if (index === activeBackgroundIndex) { 
                         bg.style.opacity = 1;
                     } else {
                         bg.style.opacity = 0;
@@ -444,7 +421,7 @@
             };
 
             window.addEventListener('scroll', updateBackgrounds);
-            updateBackgrounds(); // Initial call
+            updateBackgrounds(); // Initial call to set background based on initial scroll position
         });
     </script>
 </body>
