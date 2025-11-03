@@ -24,6 +24,7 @@
         @keyframes blink {
             50% { border-color: transparent; }
         }
+        /* Custom styles for your dark theme elements */
         .form-input {
             background-color: #2a2a2a; border-color: #4a4a4a;
         }
@@ -48,8 +49,8 @@
         
         /* Summary Card Styles */
         .summary-card {
-            background-color: #1a202c; /* Dark blue-gray base */
-            border: 1px solid #2d3748; /* border-gray-700 */
+            background-color: #1a202c;
+            border: 1px solid #2d3748;
             transition: all 0.3s ease;
         }
         .summary-card:hover {
@@ -57,11 +58,8 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
             border-color: #667eea;
         }
-        .summary-card .card-content {
-            background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(45, 55, 72, 0.8));
-        }
 
-        /* --- Form Container Styles (For Contact Section) --- */
+        /* Form Container Styles */
         .form-container {
             max-width: 700px;
             margin: 0 auto;
@@ -73,7 +71,7 @@
         }
         .form-iframe {
             width: 100%;
-            height: 600px; /* Adjust as needed */
+            height: 600px;
             border: none;
             overflow: hidden;
             display: block;
@@ -85,7 +83,7 @@
             font-size: 0.9em;
             text-align: center;
         }
-        /* --- Scroll Animation Classes --- */
+        /* Scroll Animation Classes */
         .scroll-animate {
             opacity: 0;
             transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.9s ease-out;
@@ -102,19 +100,13 @@
 </head>
 <body class="text-gray-200">
 
-    <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('red_dust.jpg'); opacity: 1;"></div>
-    
-    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('tower.jpg'); opacity: 0;"></div>
-    
-    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('water.png'); opacity: 0;"></div>
-    
-    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('crab.jpg'); opacity: 0;"></div>
-    
-    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('https://www.leica-microsystems.com/fileadmin/_processed_/f/8/csm_lms-a-guide-to-flim_header_rabbit-tongue-Fast-FLIM_8a507e69b0.jpg'); opacity: 0;"></div>
-    
+    <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('images/red_dust.jpg'); opacity: 1;"></div>
+    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('images/tower.jpg'); opacity: 0;"></div>
+    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('images/water.png'); opacity: 0;"></div>
+    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('images/crab.jpg'); opacity: 0;"></div>
+    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('proj-parkinsons-gwas-2.jpg'); opacity: 0;"></div>
     <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-
-    <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('better_mount.jpg'); opacity: 0;"></div>
+    <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('images/proj-sclc-research.jpg'); opacity: 0;"></div>
 
     <header class="bg-[#111111] shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -125,7 +117,8 @@
                 <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
                 <li><a href="projects.html" class="hover:text-indigo-400 transition duration-300">Projects</a></li>
                 <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
-                <li><a href="#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li> </ul>
+                <li><a href="#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -231,21 +224,21 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <img src="red_dust.jpg" class="w-full h-56 object-cover opacity-75">
+                    <img src="red_dust.jpg" class="w-full h-56 object-cover opacity-75" alt="Abstract red dust image">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
                         <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
-                    <img src="crab.jpg" class="w-full h-56 object-cover opacity-75">
+                    <img src="crab.jpg" class="w-full h-56 object-cover opacity-75" alt="Crab microscopy image">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
                         <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
-                    <img src="water.png" class="w-full h-56 object-cover opacity-75">
+                    <img src="water.png" class="w-full h-56 object-cover opacity-75" alt="Water-related image">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
                         <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
@@ -319,8 +312,8 @@
                     <a href="mailto:dsandeep@andrew.cmu.edu" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
                         Email: dsandeep@andrew.cmu.edu
                     </a>
-                    <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
-                        LinkedIn Profile
+                    <a href="https://www.instagram.com/ephemerallyvague?igsh=eno1ZXNxbDQxeG5h" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
+                        Instagram: @ephemerallyvague
                     </a>
                 </div>
             </div>
@@ -387,7 +380,7 @@
             const elementsToAnimate = document.querySelectorAll('.scroll-animate');
             elementsToAnimate.forEach(el => observer.observe(el));
             
-            // --- Background Fade on Scroll (UPDATED to handle 7 backgrounds) ---
+            // --- Background Fade on Scroll (Handles 7 backgrounds) ---
             const bgElements = [
                 document.getElementById('dynamic-bg-1'),
                 document.getElementById('dynamic-bg-2'),
@@ -395,7 +388,7 @@
                 document.getElementById('dynamic-bg-4'),
                 document.getElementById('dynamic-bg-5'),
                 document.getElementById('dynamic-bg-6'),
-                document.getElementById('dynamic-bg-7') // New Contact BG
+                document.getElementById('dynamic-bg-7') // Contact BG
             ];
             const sections = [
                 document.getElementById('about'),
@@ -403,13 +396,14 @@
                 document.getElementById('skills'),
                 document.getElementById('projects'),
                 document.getElementById('extracurricular'),
-                document.getElementById('contact') // New Contact Section
+                document.getElementById('contact') // Contact Section
             ];
 
             const updateBackgrounds = () => {
                 const scrollY = window.scrollY;
                 const viewHeight = window.innerHeight;
                 
+                // Keep BG 1 visible at the very top
                 if (scrollY < 100) { 
                     if (bgElements[0]) bgElements[0].style.opacity = 1;
                     for (let i = 1; i < bgElements.length; i++) {
@@ -432,6 +426,7 @@
                     }
                 }
                 
+                // Active BG is the one corresponding to the section + 1
                 bgElements.forEach((bg, index) => {
                     if (!bg) return;
                     if (index === activeSectionIndex + 1) { 
@@ -441,6 +436,7 @@
                     }
                 });
                 
+                // Fallback to ensure one background is always visible near the center
                 let opacitySum = bgElements.reduce((acc, bg) => {
                     if (!bg) return acc;
                     return acc + parseFloat(bg.style.opacity || 0);
