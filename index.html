@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devavrath Sandeep - AI & Biomedical Engineering</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+        <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111111;
             color: #e2e8f0;
             overflow-x: hidden;
         }
+        /* Hero Section Gradient Overlay */
         .hero-bg {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 100%);
             position: relative; z-index: 10;
         }
+        /* Typing Effect Cursor */
         .typing-cursor {
             border-right: .1em solid white;
             animation: blink .7s steps(1) infinite;
@@ -24,6 +27,7 @@
         @keyframes blink {
             50% { border-color: transparent; }
         }
+        /* Form Input Styling */
         .form-input {
             background-color: #2a2a2a; border-color: #4a4a4a;
         }
@@ -37,6 +41,7 @@
             background-size: cover; background-position: center center; filter: blur(8px);
             transition: opacity 0.8s ease-in-out;
         }
+        /* Section Background Overlay to ensure readability */
         section {
             background-color: rgba(0, 0, 0, 0.7);
             position: relative; z-index: 10;
@@ -78,7 +83,7 @@
 </head>
 <body class="text-gray-200">
 
-        <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 1;"></div>
+                <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 1;"></div>
     <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1517673130006-b13c5d63f07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
     <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
     <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1618264353051-71c1de1a23f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
@@ -86,10 +91,10 @@
     <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
     <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
 
-    <header class="bg-[#111111] shadow-md sticky top-0 z-50">
+                <header class="bg-[#111111] shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
-            <ul class="flex space-x-6">
+                        <ul class="flex space-x-6">
                 <li><a href="#about" class="text-indigo-400 font-bold transition duration-300">About</a></li>
                 <li><a href="education.html" class="hover:text-indigo-400 transition duration-300">Education</a></li>
                 <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
@@ -100,16 +105,16 @@
         </nav>
     </header>
 
-        <section class="hero-bg text-white text-center py-20 md:py-32">
+                <section class="hero-bg text-white text-center py-20 md:py-32">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Devavrath Sandeep</h1>
-            <p class="text-lg md:text-2xl font-light">
+                        <p class="text-lg md:text-2xl font-light">
                 I'm a <span id="typing-effect" class="font-medium"></span><span class="typing-cursor"></span>
             </p>
         </div>
     </section>
 
-        <section id="about" class="py-20">
+                <section id="about" class="py-20">
         <div class="container mx-auto px-6">
             <div class="scroll-animate fade-in-up text-center max-w-3xl mx-auto">
                 <h2 class="text-3xl font-bold mb-4">About Me</h2>
@@ -126,7 +131,7 @@
         </div>
     </section>
 
-        <section id="education" class="py-20">
+                <section id="education" class="py-20">
         <div class="container mx-auto px-6">
             <div class="scroll-animate fade-in-up text-center mb-12">
                 <h2 class="text-3xl font-bold">Education</h2>
@@ -154,39 +159,40 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-12 scroll-animate fade-in-up">
+                        <div class="text-center mt-12 scroll-animate fade-in-up">
                 <a href="education.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
                     View Full Education Details
                 </a>
+                
             </div>
         </div>
     </section>
 
-        <section id="skills" class="py-20">
+                <section id="skills" class="py-20">
         <div class="container mx-auto px-6">
             <div class="scroll-animate fade-in-up text-center mb-12">
                 <h2 class="text-3xl font-bold">Core Competencies</h2>
                 <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
             </div>
             <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
+                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
                     <h3 class="text-xl font-semibold text-white">AI & ML</h3>
                     <p class="text-gray-400 mt-2">PyTorch, TensorFlow, Scikit-learn, MLOps, CNNs</p>
                 </div>
-                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 100ms;">
+                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 100ms;">
                     <h3 class="text-xl font-semibold text-white">Data & Platforms</h3>
                     <p class="text-gray-400 mt-2">Python, SQL, AWS, HPC Clusters, Docker</p>
                 </div>
-                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 200ms;">
+                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 200ms;">
                     <h3 class="text-xl font-semibold text-white">Bio-Engineering</h3>
                     <p class="text-gray-400 mt-2">BCI, Genomics, EEGLAB, Bioinformatics, Signal Processing</p>
                 </div>
-                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 300ms;">
+                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 300ms;">
                     <h3 class="text-xl font-semibold text-white">Wet Lab</h3>
                     <p class="text-gray-400 mt-2">MTT Assay, Flow Cytometry, PCR, Cell Culturing</p>
                 </div>
             </div>
-            <div class="text-center mt-12 scroll-animate fade-in-up">
+                        <div class="text-center mt-12 scroll-animate fade-in-up">
                 <a href="skills.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
                     See All Skills & Coursework
                 </a>
@@ -194,7 +200,7 @@
         </div>
     </section>
 
-        <section id="projects" class="py-20">
+                <section id="projects" class="py-20">
         <div class="container mx-auto px-6">
             <div class="scroll-animate fade-in-up text-center mb-12">
                 <h2 class="text-3xl font-bold">Featured Projects</h2>
@@ -202,28 +208,28 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <img src="https://images.unsplash.com/photo-1678483787716-026f86ab33f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Assistive BCI Robot" class="w-full h-56 object-cover opacity-75">
+                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
                         <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
                     </div>
                 </div>
                                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
-                    <img src="proj-sclc-research.jpg" alt="Alzheimer's Prediction" class="w-full h-56 object-cover opacity-75">
+                    <img src="images/proj-sclc-research.jpg" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
                         <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
                     </div>
                 </div>
                                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
-                    <img src="proj-parkinsons-gwas-2.jpg" alt="Parkinson's Genetic Risk" class="w-full h-56 object-cover opacity-75">
+                    <img src="images/proj-parkinsons-gwas-2.jpg" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
                         <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-12 scroll-animate fade-in-up">
+                        <div class="text-center mt-12 scroll-animate fade-in-up">
                 <a href="projects.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
                     View All Projects
                 </a>
@@ -231,27 +237,27 @@
         </div>
     </section>
 
-        <section id="extracurricular" class="py-20">
+                <section id="extracurricular" class="py-20">
         <div class="container mx-auto px-6">
             <div class="scroll-animate fade-in-up text-center mb-12">
                 <h2 class="text-3xl font-bold">Leadership & Activities</h2>
                 <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
             </div>
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-left">
+                                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-left">
                     <h3 class="text-xl font-semibold text-white">Technical Leadership</h3>
                     <p class="text-gray-400 mt-2">Head of PROMETEO Technical Fest & TEDx, Coordinator for iGEM Society, and TA for Bioengineering.</p>
                 </div>
-                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
+                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
                     <h3 class="text-xl font-semibold text-white">Creative & Media</h3>
                     <p class="text-gray-400 mt-2">Festival Chief for FRAMED (Photography Fest) and Secretary of Shutterbugs Society.</p>
                 </div>
-                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-right">
+                                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-right">
                     <h3 class="text-xl font-semibold text-white">Team & Competition</h3>
                     <p class="text-gray-400 mt-2">Competed in Inter-IIT Sports (Basketball), Tech, and Cultural (Debate & Photography) Meets.</p>
                 </div>
             </div>
-            <div class="text-center mt-12 scroll-animate fade-in-up">
+                        <div class="text-center mt-12 scroll-animate fade-in-up">
                 <a href="extracurricular.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
                     See All Activities
                 </a>
@@ -259,7 +265,7 @@
         </div>
     </section>
 
-        <section id="contact" class="py-20">
+                <section id="contact" class="py-20">
         <div class="container mx-auto px-6">
             <div class="scroll-animate fade-in-up text-center mb-12">
                 <h2 class="text-3xl font-bold">Get In Touch</h2>
@@ -268,15 +274,15 @@
             </div>
             <form id="contact-form" class="max-w-xl mx-auto scroll-animate fade-in-up">
                 <div id="form-message" class="mb-4 text-center"></div>
-                <div class="mb-4">
+                                <div class="mb-4">
                     <label for="name" class="block text-gray-200 font-medium mb-2">Name</label>
                     <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required>
                 </div>
-                <div class="mb-4">
+                                <div class="mb-4">
                     <label for="email" class="block text-gray-200 font-medium mb-2">Email</label>
                     <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required>
                 </div>
-                <div class="mb-6">
+                                <div class="mb-6">
                     <label for="message" class="block text-gray-200 font-medium mb-2">Message</label>
                     <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required></textarea>
                 </div>
@@ -289,7 +295,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6">
+                <footer class="bg-gray-900 text-white py-6">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">&copy; 2025 Devavrath Sandeep. All Rights Reserved.</p>
             <div class="mt-2">
@@ -300,9 +306,10 @@
         </div>
     </footer>
 
-    <script>
+                <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Typing Effect ---
+            
+            // --- Typing Effect Script ---
             const typingText = document.getElementById('typing-effect');
             if (typingText) {
                 const words = ["AI Engineer.", "Researcher.", "Biomedical Innovator.", "Problem Solver."];
@@ -333,7 +340,7 @@
                 type();
             }
 
-            // --- Contact Form ---
+            // --- Contact Form Placeholder Submission ---
             const form = document.getElementById('contact-form');
             if (form) {
                 const formMessage = document.getElementById('form-message');
@@ -349,9 +356,12 @@
                         return;
                     }
 
+                    // Placeholder message for successful submission
                     formMessage.textContent = "Thank you for your message! I'll be in touch soon.";
                     formMessage.className = "text-green-400 font-bold p-3 bg-green-900 bg-opacity-50 rounded-lg";
                     form.reset();
+                    
+                    // Clear the message after 5 seconds
                     setTimeout(() => {
                         formMessage.textContent = "";
                         formMessage.className = "mb-4 text-center";
@@ -359,7 +369,7 @@
                 });
             }
 
-            // --- Scroll Animation ---
+            // --- Scroll Animation (Intersection Observer) ---
             const observerOptions = {
                 root: null, rootMargin: '0px', threshold: 0.2
             };
@@ -376,7 +386,7 @@
             const elementsToAnimate = document.querySelectorAll('.scroll-animate');
             elementsToAnimate.forEach(el => observer.observe(el));
             
-            // --- Background Fade on Scroll ---
+            // --- Dynamic Background Fade on Scroll ---
             const bgElements = [
                 document.getElementById('dynamic-bg-1'),
                 document.getElementById('dynamic-bg-2'),
@@ -399,6 +409,7 @@
                 const scrollY = window.scrollY;
                 const viewHeight = window.innerHeight;
 
+                // Keep the first background visible until the user scrolls past the hero section
                 if (scrollY < 100) { 
                     if (bgElements[0]) bgElements[0].style.opacity = 1;
                     for (let i = 1; i < bgElements.length; i++) {
@@ -410,6 +421,7 @@
                 let activeSectionIndex = -1;
                 let minDistance = Infinity;
 
+                // Find the section currently closest to the viewport center
                 for (let i = 0; i < sections.length; i++) {
                     if (!sections[i]) continue;
                     const rect = sections[i].getBoundingClientRect();
@@ -421,6 +433,7 @@
                     }
                 }
 
+                // Set the corresponding background opacity to 1 (index offset by +1 since bg-1 is for the hero)
                 bgElements.forEach((bg, index) => {
                     if (!bg) return;
                     if (index === activeSectionIndex + 1) {
@@ -430,6 +443,7 @@
                     }
                 });
                 
+                // Failsafe: if no section is active, default to the background corresponding to the closest section
                 let opacitySum = bgElements.reduce((acc, bg) => {
                     if (!bg) return acc;
                     return acc + parseFloat(bg.style.opacity || 0);
@@ -446,7 +460,7 @@
             };
 
             window.addEventListener('scroll', updateBackgrounds);
-            updateBackgrounds(); // Initial call
+            updateBackgrounds(); // Initial call to set correct background
         });
     </script>
 </body>
