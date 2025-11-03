@@ -100,13 +100,17 @@
 </head>
 <body class="text-gray-200">
 
-    <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('images/red_dust.jpg'); opacity: 1;"></div>
-    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('images/tower.jpg'); opacity: 0;"></div>
-    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('images/water.png'); opacity: 0;"></div>
-    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('images/crab.jpg'); opacity: 0;"></div>
-    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('images/proj-parkinsons-gwas-2.jpg'); opacity: 0;"></div>
-    <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-    <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('images/proj-sclc-research.jpg'); opacity: 0;"></div>
+    <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('red_dust.jpg'); opacity: 1;"></div>
+    
+    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('water.png'); opacity: 0;"></div>
+    
+    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('crab.jpg'); opacity: 0;"></div>
+    
+    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('tower.jpg'); opacity: 0;"></div>
+    
+    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+
+    <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('proj-sclc-research.jpg'); opacity: 0;"></div>
 
     <header class="bg-[#111111] shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -224,21 +228,21 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75" >
+                    <img src="red_dust.jpg" class="w-full h-56 object-cover opacity-75" alt="Abstract red dust image">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
                         <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
-                    <img src="images/proj-alzheimers-cnn.png" class="w-full h-56 object-cover opacity-75" >
+                    <img src="crab.jpg" class="w-full h-56 object-cover opacity-75" alt="Crab microscopy image">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
                         <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
-                    <img src="images/proj-parkinsons-gwas.png" class="w-full h-56 object-cover opacity-75" >
+                    <img src="water.png" class="w-full h-56 object-cover opacity-75" alt="Water-related image">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
                         <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
@@ -298,7 +302,7 @@
                 
                 <iframe 
                     class="form-iframe" 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSeMDXhLtLbrfI__YPJfJKoGYlkz_zJG7p6IIeAfFkFj_tFIug/viewform?usp=dialog" 
+                    src="REPLACE_THIS_WITH_YOUR_GOOGLE_FORM_EMBED_URL" 
                     frameborder="0" 
                     marginheight="0" 
                     marginwidth="0">
@@ -380,15 +384,14 @@
             const elementsToAnimate = document.querySelectorAll('.scroll-animate');
             elementsToAnimate.forEach(el => observer.observe(el));
             
-            // --- Background Fade on Scroll (Handles 7 backgrounds) ---
+            // --- Background Fade on Scroll (Handles 6 backgrounds, mapping to sections) ---
             const bgElements = [
-                document.getElementById('dynamic-bg-1'),
-                document.getElementById('dynamic-bg-2'),
-                document.getElementById('dynamic-bg-3'),
-                document.getElementById('dynamic-bg-4'),
-                document.getElementById('dynamic-bg-5'),
-                document.getElementById('dynamic-bg-6'),
-                document.getElementById('dynamic-bg-7') // Contact BG
+                document.getElementById('dynamic-bg-1'), // Hero & About
+                document.getElementById('dynamic-bg-2'), // Education
+                document.getElementById('dynamic-bg-3'), // Skills
+                document.getElementById('dynamic-bg-4'), // Projects
+                document.getElementById('dynamic-bg-5'), // Activities
+                document.getElementById('dynamic-bg-6')  // Contact
             ];
             const sections = [
                 document.getElementById('about'),
@@ -396,14 +399,14 @@
                 document.getElementById('skills'),
                 document.getElementById('projects'),
                 document.getElementById('extracurricular'),
-                document.getElementById('contact') // Contact Section
+                document.getElementById('contact')
             ];
 
             const updateBackgrounds = () => {
                 const scrollY = window.scrollY;
                 const viewHeight = window.innerHeight;
                 
-                // Keep BG 1 visible at the very top
+                // Keep BG 1 visible at the very top (Hero/Name)
                 if (scrollY < 100) { 
                     if (bgElements[0]) bgElements[0].style.opacity = 1;
                     for (let i = 1; i < bgElements.length; i++) {
@@ -426,30 +429,18 @@
                     }
                 }
                 
-                // Active BG is the one corresponding to the section + 1
+                // For Hero/About (activeSectionIndex 0), we want BG 1. 
+                // For Education (activeSectionIndex 1), we want BG 2.
+                // The index offset is 0 for About, so we use activeSectionIndex.
+                
                 bgElements.forEach((bg, index) => {
                     if (!bg) return;
-                    if (index === activeSectionIndex + 1) { 
+                    if (index === activeSectionIndex) { 
                         bg.style.opacity = 1;
                     } else {
                         bg.style.opacity = 0;
                     }
                 });
-                
-                // Fallback to ensure one background is always visible near the center
-                let opacitySum = bgElements.reduce((acc, bg) => {
-                    if (!bg) return acc;
-                    return acc + parseFloat(bg.style.opacity || 0);
-                }, 0);
-                
-                if (opacitySum === 0) {
-                    const targetIndex = activeSectionIndex + 1;
-                    if (targetIndex >= 0 && targetIndex < bgElements.length && bgElements[targetIndex]) {
-                        bgElements[targetIndex].style.opacity = 1; 
-                    } else if (bgElements[0]) {
-                        bgElements[0].style.opacity = 1; 
-                    }
-                }
             };
 
             window.addEventListener('scroll', updateBackgrounds);
