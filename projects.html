@@ -108,7 +108,7 @@
 </head>
 <body class="text-gray-200">
 
-    <div class="dynamic-background" style="background-image: url('https::/images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="dynamic-background" style="background-image: url('images/japan.png');"></div>
 
     <header class="bg-[#111111] shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -161,7 +161,6 @@
                 <!-- NEW Project Card 9: MQTT Dataset -->
                 <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
                     <img src="images/nslkdd.png" class="w-full h-56 object-cover">
-                    <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">ML-based Cybersecurity Analysis of MQTT IoT Traffic</h3>
                         <p class="text-gray-400 mb-4 flex-grow">Developed an end-to-end data pipeline to analyze MQTT network traffic, building ML models to detect and classify cyberattacks.</p>
                         <button data-project-id="mqttProject" class="view-details-btn text-indigo-400 font-semibold hover:underline text-left">View Details &rarr;</button>
@@ -354,7 +353,7 @@
             // --- UPDATED PROJECTS BELOW ---
             exoProject: {
                 title: "Real-Time Exoskeleton Control (Neuromechatronics Lab)",
-                image: "https://placehold.co/800x400/374151/ffffff?text=Exoskeleton+Research",
+                image: "images/dougw.png",
                 description: `
                     <p>This is my current research at Carnegie Mellon University in Professor Douglas Weber's Neuromechatronics Lab.</p>
                     <p>The primary goal is to develop an advanced control system for an assistive exoskeleton designed to help restore motion for individuals who have suffered strokes. The system is also being developed as a potential high-efficacy physiotherapy tool.</p>
@@ -369,7 +368,7 @@
             },
             fifaProject: {
                 title: "Scalable Data Analytics Pipeline for FIFA Player Dataset",
-                image: "https://placehold.co/800x400/374151/ffffff?text=FIFA+Data+Project",
+                image: "images/fifa.png",
                 description: `
                     <p>A comprehensive project focused on end-to-end data pipeline construction and analysis using a large-scale FIFA player dataset (2015-2022). The work involved building scalable analytics and machine learning models to predict player value.</p>
                     <p class="font-semibold text-white mt-4">Project Tasks & Technologies:</p>
@@ -384,7 +383,7 @@
             },
             mqttProject: {
                 title: "ML-based Cybersecurity Analysis of MQTT IoT Traffic",
-                image: "https://placehold.co/800x400/374151/ffffff?text=MQTT+Cybersecurity+Project",
+                image: "images/nslkdd.png",
                 description: `
                     <p>A comprehensive project focused on using machine learning to analyze network traffic from the MQTT protocol, a common standard for IoT devices.</p>
                     <p>The goal was to build a system that could automatically detect and classify cybersecurity attacks (like DoS, brute force, etc.) from raw network data.</p>
@@ -410,10 +409,15 @@
                 const modalTitle = document.getElementById('modal-title');
                 const modalImage = document.getElementById('modal-image');
                 const modalDescription = document.getElementById('modal-description');
-                const detailButtons = document.querySelectorAll('.view-details-btn');
+                // Select the entire card, not just the button
+                const projectCards = document.querySelectorAll('.project-card');
                 
-                detailButtons.forEach(button => {
-                    button.addEventListener('click', (e) => {
+                projectCards.forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        // Find the button within the clicked card to get the project ID
+                        const button = card.querySelector('.view-details-btn');
+                        if (!button) return; // Safety check
+
                         e.preventDefault(); 
                         const projectId = button.dataset.projectId;
                         const data = projectData[projectId];
@@ -476,5 +480,6 @@
     </script>
 </body>
 </html>
+
 
 
