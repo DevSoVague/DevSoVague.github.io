@@ -61,6 +61,30 @@
             background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(45, 55, 72, 0.8));
         }
 
+        /* --- Form Container Styles (For Contact Section) --- */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #1a202c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid #2d3748;
+        }
+        .form-iframe {
+            width: 100%;
+            height: 600px; /* Adjust as needed */
+            border: none;
+            overflow: hidden;
+            display: block;
+        }
+        .form-note {
+            background-color: #2d3748;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            text-align: center;
+        }
         /* --- Scroll Animation Classes --- */
         .scroll-animate {
             opacity: 0;
@@ -90,17 +114,18 @@
     
     <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
 
+    <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('better_mount.jpg'); opacity: 0;"></div>
+
     <header class="bg-[#111111] shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
             <ul class="flex space-x-6">
-                <li><a href="#about" class="text-indigo-400 font-bold transition duration-300">About</a></li>
+                <li><a href="#about" class="hover:text-indigo-400 transition duration-300">About</a></li>
                 <li><a href="education.html" class="hover:text-indigo-400 transition duration-300">Education</a></li>
                 <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
                 <li><a href="projects.html" class="hover:text-indigo-400 transition duration-300">Projects</a></li>
                 <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
-                <li><a href="contact.html" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
-            </ul>
+                <li><a href="#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li> </ul>
         </nav>
     </header>
 
@@ -206,21 +231,21 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75">
+                    <img src="red_dust.jpg" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
                         <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
-                    <img src="images/proj-alzheimers-cnn.png" class="w-full h-56 object-cover opacity-75">
+                    <img src="crab.jpg" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
                         <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
                     </div>
                 </div>
                 <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
-                    <img src="images/proj-parkinsons-gwas.png" class="w-full h-56 object-cover opacity-75">
+                    <img src="water.png" class="w-full h-56 object-cover opacity-75">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
                         <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
@@ -263,6 +288,44 @@
         </div>
     </section>
 
+    <section id="contact" class="py-20 min-h-screen">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-animate fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold">Get In Touch 🤝</h1>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mt-6 rounded"></div>
+                <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+                    I'm always open to discussing new projects, research collaborations, or opportunities. Please use the form below to send me a message directly.
+                </p>
+            </div>
+            
+            <div class="form-container scroll-animate fade-in-up" style="animation-delay: 200ms;">
+                <div class="form-note mb-4 text-gray-300">
+                    This form is securely handled by Google Forms. All responses are sent to dsandeep@andrew.cmu.edu.
+                </div>
+                
+                <iframe 
+                    class="form-iframe" 
+                    src="REPLACE_THIS_WITH_YOUR_GOOGLE_FORM_EMBED_URL" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+
+            <div class="text-center mt-16 scroll-animate fade-in-up" style="animation-delay: 400ms;">
+                <h2 class="text-2xl font-bold mb-6">Connect with Me</h2>
+                <div class="flex justify-center space-x-8">
+                    <a href="mailto:dsandeep@andrew.cmu.edu" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
+                        Email: dsandeep@andrew.cmu.edu
+                    </a>
+                    <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition duration-300">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="bg-gray-900 text-white py-6">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">&copy; 2025 Devavrath Sandeep. All Rights Reserved.</p>
@@ -324,28 +387,29 @@
             const elementsToAnimate = document.querySelectorAll('.scroll-animate');
             elementsToAnimate.forEach(el => observer.observe(el));
             
-            // --- Background Fade on Scroll ---
+            // --- Background Fade on Scroll (UPDATED to handle 7 backgrounds) ---
             const bgElements = [
                 document.getElementById('dynamic-bg-1'),
                 document.getElementById('dynamic-bg-2'),
                 document.getElementById('dynamic-bg-3'),
                 document.getElementById('dynamic-bg-4'),
                 document.getElementById('dynamic-bg-5'),
-                document.getElementById('dynamic-bg-6')
+                document.getElementById('dynamic-bg-6'),
+                document.getElementById('dynamic-bg-7') // New Contact BG
             ];
             const sections = [
                 document.getElementById('about'),
                 document.getElementById('education'),
                 document.getElementById('skills'),
                 document.getElementById('projects'),
-                document.getElementById('extracurricular')
+                document.getElementById('extracurricular'),
+                document.getElementById('contact') // New Contact Section
             ];
 
             const updateBackgrounds = () => {
                 const scrollY = window.scrollY;
                 const viewHeight = window.innerHeight;
                 
-                // Show dynamic-bg-1 (Hero) when near the top
                 if (scrollY < 100) { 
                     if (bgElements[0]) bgElements[0].style.opacity = 1;
                     for (let i = 1; i < bgElements.length; i++) {
@@ -368,7 +432,6 @@
                     }
                 }
                 
-                // Active background image is one index greater than the active section (since Hero is bg 1)
                 bgElements.forEach((bg, index) => {
                     if (!bg) return;
                     if (index === activeSectionIndex + 1) { 
@@ -378,7 +441,6 @@
                     }
                 });
                 
-                // Fallback to ensure *one* image is visible
                 let opacitySum = bgElements.reduce((acc, bg) => {
                     if (!bg) return acc;
                     return acc + parseFloat(bg.style.opacity || 0);
