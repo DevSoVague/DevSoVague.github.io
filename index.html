@@ -1,467 +1,467 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devavrath Sandeep - AI & Biomedical Engineering</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
-        <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111111;
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-        /* Hero Section Gradient Overlay */
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 100%);
-            position: relative; z-index: 10;
-        }
-        /* Typing Effect Cursor */
-        .typing-cursor {
-            border-right: .1em solid white;
-            animation: blink .7s steps(1) infinite;
-        }
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-        /* Form Input Styling */
-        .form-input {
-            background-color: #2a2a2a; border-color: #4a4a4a;
-        }
-        .form-input:focus {
-            box-shadow: 0 0 0 2px #667eea; border-color: #667eea;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devavrath Sandeep - AI & Biomedical Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 100%);
+            position: relative; z-index: 10;
+        }
+        .typing-cursor {
+            border-right: .1em solid white;
+            animation: blink .7s steps(1) infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .form-input {
+            background-color: #2a2a2a; border-color: #4a4a4a;
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 2px #667eea; border-color: #667eea;
+        }
 
-        /* Dynamic Background Style */
-        .dynamic-background {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
-            background-size: cover; background-position: center center; filter: blur(8px);
-            transition: opacity 0.8s ease-in-out;
-        }
-        /* Section Background Overlay to ensure readability */
-        section {
-            background-color: rgba(0, 0, 0, 0.7);
-            position: relative; z-index: 10;
-        }
-        header, footer {
-            background-color: #111111;
-            position: relative; z-index: 20;
-        }
-        
-        /* Summary Card Styles */
-        .summary-card {
-            background-color: #1a202c; /* Dark blue-gray base */
-            border: 1px solid #2d3748; /* border-gray-700 */
-            transition: all 0.3s ease;
-        }
-        .summary-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
-            border-color: #667eea;
-        }
-        .summary-card .card-content {
-            background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(45, 55, 72, 0.8));
-        }
+        /* Dynamic Background Style */
+        .dynamic-background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+            background-size: cover; background-position: center center; filter: blur(8px);
+            transition: opacity 0.8s ease-in-out;
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: relative; z-index: 10;
+        }
+        header, footer {
+            background-color: #111111;
+            position: relative; z-index: 20;
+        }
+        
+        /* Summary Card Styles */
+        .summary-card {
+            background-color: #1a202c; /* Dark blue-gray base */
+            border: 1px solid #2d3748; /* border-gray-700 */
+            transition: all 0.3s ease;
+        }
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+            border-color: #667eea;
+        }
+        .summary-card .card-content {
+            background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(45, 55, 72, 0.8));
+        }
 
-        /* --- Scroll Animation Classes --- */
-        .scroll-animate {
-            opacity: 0;
-            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.9s ease-out;
-            will-change: transform, opacity;
-        }
-        .slide-in-left { transform: translateX(-100px); }
-        .slide-in-right { transform: translateX(100px); }
-        .fade-in-up { transform: translateY(40px); }
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-        }
-    </style>
+        /* --- Scroll Animation Classes --- */
+        .scroll-animate {
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.9s ease-out;
+            will-change: transform, opacity;
+        }
+        .slide-in-left { transform: translateX(-100px); }
+        .slide-in-right { transform: translateX(100px); }
+        .fade-in-up { transform: translateY(40px); }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+    </style>
 </head>
 <body class="text-gray-200">
 
-                <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 1;"></div>
-    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1517673130006-b13c5d63f07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1618264353051-71c1de1a23f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('https://www.leica-microsystems.com/fileadmin/_processed_/f/8/csm_lms-a-guide-to-flim_header_rabbit-tongue-Fast-FLIM_8a507e69b0.jpg'); opacity: 0;"></div>
-    <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
-    <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <!-- Background Image Layers -->
+    <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 1;"></div>
+    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1517673130006-b13c5d63f07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1618264353051-71c1de1a23f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('https://www.leica-microsystems.com/fileadmin/_processed_/f/8/csm_lms-a-guide-to-flim_header_rabbit-tongue-Fast-FLIM_8a507e69b0.jpg'); opacity: 0;"></div>
+    <div id="dynamic-bg-6" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <div id="dynamic-bg-7" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
 
-                <header class="bg-[#111111] shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
-                        <ul class="flex space-x-6">
-                <li><a href="#about" class="text-indigo-400 font-bold transition duration-300">About</a></li>
-                <li><a href="education.html" class="hover:text-indigo-400 transition duration-300">Education</a></li>
-                <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
-                <li><a href="projects.html" class="hover:text-indigo-400 transition duration-300">Projects</a></li>
-                <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
-                <li><a href="#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="bg-[#111111] shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-indigo-400 font-bold transition duration-300">About</a></li>
+                <li><a href="education.html" class="hover:text-indigo-400 transition duration-300">Education</a></li>
+                <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
+                <li><a href="projects.html" class="hover:text-indigo-400 transition duration-300">Projects</a></li>
+                <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
+                <li><a href="#contact" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-                <section class="hero-bg text-white text-center py-20 md:py-32">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Devavrath Sandeep</h1>
-                        <p class="text-lg md:text-2xl font-light">
-                I'm a <span id="typing-effect" class="font-medium"></span><span class="typing-cursor"></span>
-            </p>
-        </div>
-    </section>
+    <!-- Hero Section -->
+    <section class="hero-bg text-white text-center py-20 md:py-32">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Devavrath Sandeep</h1>
+            <p class="text-lg md:text-2xl font-light">
+                I'm a <span id="typing-effect" class="font-medium"></span><span class="typing-cursor"></span>
+            </p>
+        </div>
+    </section>
 
-                <section id="about" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="scroll-animate fade-in-up text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
-                <p class="text-lg text-gray-400 leading-relaxed space-y-4">
-                    <span>
-                        I am a passionate and driven engineer at the intersection of **Artificial Intelligence** and **Biomedical Engineering**. Currently pursuing my Master's in AI Engineering at Carnegie Mellon University, I thrive on tackling complex, real-world problems by leveraging data.
-                    </span>
-                    <span>
-                        My journey from a B.Tech in Bioengineering at IIT Jodhpur has been defined by a deep-seated curiosity for understanding the "why" and "how"—from analyzing genomic data on HPC clusters to understand Parkinson's, to developing low-latency BCI systems for assistive robotics. I am always eager to collaborate on projects that push the boundaries of technology to create a tangible impact on human health.
-                    </span>
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- About Me Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+                <p class="text-lg text-gray-400 leading-relaxed space-y-4">
+                    <span>
+                        I am a passionate and driven engineer at the intersection of Artificial Intelligence and Biomedical Engineering. Currently pursuing my Master's in AI Engineering at Carnegie Mellon University, I thrive on tackling complex, real-world problems by leveraging data.
+                    </span>
+                    <span>
+                        My journey from a B.Tech in Bioengineering at IIT Jodhpur has been defined by a deep-seated curiosity for understanding the "why" and "how"—from analyzing genomic data on HPC clusters to understand Parkinson's, to developing low-latency BCI systems for assistive robotics. I am always eager to collaborate on projects that push the boundaries of technology to create a tangible impact on human health.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
 
-                <section id="education" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="scroll-animate fade-in-up text-center mb-12">
-                <h2 class="text-3xl font-bold">Education</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
-            </div>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2 text-white">Carnegie Mellon University</h3>
-                        <p class="text-indigo-400 font-semibold mb-3">MS, AI Engineering - Biomedical</p>
-                        <p class="text-gray-400 mb-4">Focusing on advanced machine learning, brain-computer interfaces, and AI systems development.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800">
-                        <span class="text-sm text-gray-400">Pittsburgh, PA | Expected Dec 2026</span>
-                    </div>
-                </div>
-                                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2 text-white">Indian Institute of Technology (IIT) Jodhpur</h3>
-                        <p class="text-indigo-400 font-semibold mb-3">B.Tech, Bioengineering</p>
-                        <p class="text-gray-400 mb-4">Graduated in the top 1% of the department, with a specialization in the Science of Intelligence.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800">
-                        <span class="text-sm text-gray-400">Jodhpur, India | Graduated May 2025</span>
-                    </div>
-                </div>
-            </div>
-                        <div class="text-center mt-12 scroll-animate fade-in-up">
-                <a href="education.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    View Full Education Details
-                </a>
-                
-            </div>
-        </div>
-    </section>
+    <!-- Education Summary -->
+    <section id="education" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Education</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- CMU Card -->
+                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Carnegie Mellon University</h3>
+                        <p class="text-indigo-400 font-semibold mb-3">MS, AI Engineering - Biomedical</p>
+                        <p class="text-gray-400 mb-4">Focusing on advanced machine learning, brain-computer interfaces, and AI systems development.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800">
+                        <span class="text-sm text-gray-400">Pittsburgh, PA | Expected Dec 2026</span>
+                    </div>
+                </div>
+                <!-- IIT Jodhpur Card -->
+                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Indian Institute of Technology (IIT) Jodhpur</h3>
+                        <p class="text-indigo-400 font-semibold mb-3">B.Tech, Bioengineering</p>
+                        <p class="text-gray-400 mb-4">Graduated in the top 1% of the department, with a specialization in the Science of Intelligence.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800">
+                        <span class="text-sm text-gray-400">Jodhpur, India | Graduated May 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="education.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    View Full Education Details
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <section id="skills" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="scroll-animate fade-in-up text-center mb-12">
-                <h2 class="text-3xl font-bold">Core Competencies</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
-            </div>
-            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
-                    <h3 class="text-xl font-semibold text-white">AI & ML</h3>
-                    <p class="text-gray-400 mt-2">PyTorch, TensorFlow, Scikit-learn, MLOps, CNNs</p>
-                </div>
-                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 100ms;">
-                    <h3 class="text-xl font-semibold text-white">Data & Platforms</h3>
-                    <p class="text-gray-400 mt-2">Python, SQL, AWS, HPC Clusters, Docker</p>
-                </div>
-                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 200ms;">
-                    <h3 class="text-xl font-semibold text-white">Bio-Engineering</h3>
-                    <p class="text-gray-400 mt-2">BCI, Genomics, EEGLAB, Bioinformatics, Signal Processing</p>
-                </div>
-                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 300ms;">
-                    <h3 class="text-xl font-semibold text-white">Wet Lab</h3>
-                    <p class="text-gray-400 mt-2">MTT Assay, Flow Cytometry, PCR, Cell Culturing</p>
-                </div>
-            </div>
-                        <div class="text-center mt-12 scroll-animate fade-in-up">
-                <a href="skills.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    See All Skills & Coursework
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Skills Summary -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Core Competencies</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
+                    <h3 class="text-xl font-semibold text-white">AI & ML</h3>
+                    <p class="text-gray-400 mt-2">PyTorch, TensorFlow, Scikit-learn, MLOps, CNNs</p>
+                </div>
+                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 100ms;">
+                    <h3 class="text-xl font-semibold text-white">Data & Platforms</h3>
+                    <p class="text-gray-400 mt-2">Python, SQL, AWS, HPC Clusters, Docker</p>
+                </div>
+                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 200ms;">
+                    <h3 class="text-xl font-semibold text-white">Bio-Engineering</h3>
+                    <p class="text-gray-400 mt-2">BCI, Genomics, EEGLAB, Bioinformatics, Signal Processing</p>
+                </div>
+                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 300ms;">
+                    <h3 class="text-xl font-semibold text-white">Wet Lab</h3>
+                    <p class="text-gray-400 mt-2">MTT Assay, Flow Cytometry, PCR, Cell Culturing</p>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="skills.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    See All Skills & Coursework
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <section id="projects" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="scroll-animate fade-in-up text-center mb-12">
-                <h2 class="text-3xl font-bold">Featured Projects</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
-                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
-                        <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
-                    </div>
-                </div>
-                                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
-                    <img src="images/proj-sclc-research.jpg" class="w-full h-56 object-cover opacity-75">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
-                        <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
-                    </div>
-                </div>
-                                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
-                    <img src="images/proj-parkinsons-gwas-2.jpg" class="w-full h-56 object-cover opacity-75">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
-                        <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
-                    </div>
-                </div>
-            </div>
-                        <div class="text-center mt-12 scroll-animate fade-in-up">
-                <a href="projects.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    View All Projects
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Projects Summary -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Featured Projects</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
+                    <img src="https://images.unsplash.com/photo-1678483787716-026f86ab33f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Assistive BCI Robot" class="w-full h-56 object-cover opacity-75">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
+                        <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1554189097-90d533860d4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Alzheimer's Prediction" class="w-full h-56 object-cover opacity-75">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
+                        <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
+                    <img src="https://images.unsplash.com/photo-1618264353051-71c1de1a23f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Parkinson's Genetic Risk" class="w-full h-56 object-cover opacity-75">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
+                        <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="projects.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <section id="extracurricular" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="scroll-animate fade-in-up text-center mb-12">
-                <h2 class="text-3xl font-bold">Leadership & Activities</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
-            </div>
-            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-left">
-                    <h3 class="text-xl font-semibold text-white">Technical Leadership</h3>
-                    <p class="text-gray-400 mt-2">Head of PROMETEO Technical Fest & TEDx, Coordinator for iGEM Society, and TA for Bioengineering.</p>
-                </div>
-                                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
-                    <h3 class="text-xl font-semibold text-white">Creative & Media</h3>
-                    <p class="text-gray-400 mt-2">Festival Chief for FRAMED (Photography Fest) and Secretary of Shutterbugs Society.</p>
-                </div>
-                                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-right">
-                    <h3 class="text-xl font-semibold text-white">Team & Competition</h3>
-                    <p class="text-gray-400 mt-2">Competed in Inter-IIT Sports (Basketball), Tech, and Cultural (Debate & Photography) Meets.</p>
-                </div>
-            </div>
-                        <div class="text-center mt-12 scroll-animate fade-in-up">
-                <a href="extracurricular.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    See All Activities
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Extracurricular Summary -->
+    <section id="extracurricular" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Leadership & Activities</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-left">
+                    <h3 class="text-xl font-semibold text-white">Technical Leadership</h3>
+                    <p class="text-gray-400 mt-2">Head of PROMETEO Technical Fest & TEDx, Coordinator for iGEM Society, and TA for Bioengineering.</p>
+                </div>
+                <div class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
+                    <h3 class="text-xl font-semibold text-white">Creative & Media</h3>
+                    <p class="text-gray-400 mt-2">Festival Chief for FRAMED (Photography Fest) and Secretary of Shutterbugs Society.</p>
+                </div>
+                <div class="summary-card rounded-lg p-6 scroll-animate slide-in-right">
+                    <h3 class="text-xl font-semibold text-white">Team & Competition</h3>
+                    <p class="text-gray-400 mt-2">Competed in Inter-IIT Sports (Basketball), Tech, and Cultural (Debate & Photography) Meets.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="extracurricular.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    See All Activities
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="scroll-animate fade-in-up text-center mb-12">
-                <h2 class="text-3xl font-bold">Get In Touch</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
-                <p class="text-lg text-gray-400">I'm always open to discussing new projects, research collaborations, or opportunities.</p>
-            </div>
-            <form id="contact-form" class="max-w-xl mx-auto scroll-animate fade-in-up">
-                <div id="form-message" class="mb-4 text-center"></div>
-                                <div class="mb-4">
-                    <label for="name" class="block text-gray-200 font-medium mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required>
-                </div>
-                                <div class="mb-4">
-                    <label for="email" class="block text-gray-200 font-medium mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required>
-                </div>
-                                <div class="mb-6">
-                    <label for="message" class="block text-gray-200 font-medium mb-2">Message</label>
-                    <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-300">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Get In Touch</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+                <p class="text-lg text-gray-400">I'm always open to discussing new projects, research collaborations, or opportunities.</p>
+            </div>
+            <form id="contact-form" class="max-w-xl mx-auto scroll-animate fade-in-up">
+                <div id="form-message" class="mb-4 text-center"></div>
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-200 font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-200 font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required>
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-200 font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none transition duration-300" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-300">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
 
-                <footer class="bg-gray-900 text-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">&copy; 2025 Devavrath Sandeep. All Rights Reserved.</p>
-            <div class="mt-2">
-                <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">
-                    LinkedIn
-                </a>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Devavrath Sandeep. All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
 
-                <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Typing Effect Script ---
-            const typingText = document.getElementById('typing-effect');
-            if (typingText) {
-                const words = ["AI Engineer.", "Researcher.", "Biomedical Innovator.", "Problem Solver."];
-                let wordIndex = 0;
-                let charIndex = 0;
-                let isDeleting = false;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Typing Effect ---
+            const typingText = document.getElementById('typing-effect');
+            if (typingText) {
+                const words = ["AI Engineer.", "Researcher.", "Biomedical Innovator.", "Problem Solver."];
+                let wordIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
 
-                function type() {
-                    const currentWord = words[wordIndex];
-                    if (isDeleting) {
-                        typingText.textContent = currentWord.substring(0, charIndex - 1);
-                        charIndex--;
-                    } else {
-                        typingText.textContent = currentWord.substring(0, charIndex + 1);
-                        charIndex++;
-                    }
+                function type() {
+                    const currentWord = words[wordIndex];
+                    if (isDeleting) {
+                        typingText.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typingText.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
 
-                    if (!isDeleting && charIndex === currentWord.length) {
-                        setTimeout(() => isDeleting = true, 2000);
-                    } else if (isDeleting && charIndex === 0) {
-                        isDeleting = false;
-                        wordIndex = (wordIndex + 1) % words.length;
-                    }
+                    if (!isDeleting && charIndex === currentWord.length) {
+                        setTimeout(() => isDeleting = true, 2000);
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
 
-                    const typingSpeed = isDeleting ? 100 : 200;
-                    setTimeout(type, typingSpeed);
-                }
-                type();
-            }
+                    const typingSpeed = isDeleting ? 100 : 200;
+                    setTimeout(type, typingSpeed);
+                }
+                type();
+            }
 
-            // --- Contact Form Placeholder Submission ---
-            const form = document.getElementById('contact-form');
-            if (form) {
-                const formMessage = document.getElementById('form-message');
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const name = document.getElementById('name').value.trim();
-                    const email = document.getElementById('email').value.trim();
-                    const message = document.getElementById('message').value.trim();
+            // --- Contact Form ---
+            const form = document.getElementById('contact-form');
+            if (form) {
+                const formMessage = document.getElementById('form-message');
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
 
-                    if (!name || !email || !message) {
-                        formMessage.textContent = "Please fill out all fields.";
-                        formMessage.className = "text-red-400 font-bold p-3 bg-red-900 bg-opacity-50 rounded-lg";
-                        return;
-                    }
+                    if (!name || !email || !message) {
+                        formMessage.textContent = "Please fill out all fields.";
+                        formMessage.className = "text-red-400 font-bold p-3 bg-red-900 bg-opacity-50 rounded-lg";
+                        return;
+                    }
 
-                    // Placeholder message for successful submission
-                    formMessage.textContent = "Thank you for your message! I'll be in touch soon.";
-                    formMessage.className = "text-green-400 font-bold p-3 bg-green-900 bg-opacity-50 rounded-lg";
-                    form.reset();
-                    
-                    // Clear the message after 5 seconds
-                    setTimeout(() => {
-                        formMessage.textContent = "";
-                        formMessage.className = "mb-4 text-center";
-                    }, 5000);
-                });
-            }
+                    formMessage.textContent = "Thank you for your message! I'll be in touch soon.";
+                    formMessage.className = "text-green-400 font-bold p-3 bg-green-900 bg-opacity-50 rounded-lg";
+                    form.reset();
+                    setTimeout(() => {
+                        formMessage.textContent = "";
+                        formMessage.className = "mb-4 text-center";
+                    }, 5000);
+                });
+            }
 
-            // --- Scroll Animation (Intersection Observer) ---
-            const observerOptions = {
-                root: null, rootMargin: '0px', threshold: 0.2
-            };
-            const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            const elementsToAnimate = document.querySelectorAll('.scroll-animate');
-            elementsToAnimate.forEach(el => observer.observe(el));
-            
-            // --- Dynamic Background Fade on Scroll ---
-            const bgElements = [
-                document.getElementById('dynamic-bg-1'),
-                document.getElementById('dynamic-bg-2'),
-                document.getElementById('dynamic-bg-3'),
-                document.getElementById('dynamic-bg-4'),
-                document.getElementById('dynamic-bg-5'),
-                document.getElementById('dynamic-bg-6'),
-                document.getElementById('dynamic-bg-7')
-            ];
-            const sections = [
-                document.getElementById('about'),
-                document.getElementById('education'),
-                document.getElementById('skills'),
-                document.getElementById('projects'),
-                document.getElementById('extracurricular'),
-                document.getElementById('contact')
-            ];
+            // --- Scroll Animation ---
+            const observerOptions = {
+                root: null, rootMargin: '0px', threshold: 0.2
+            };
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+            elementsToAnimate.forEach(el => observer.observe(el));
+            
+            // --- Background Fade on Scroll ---
+            const bgElements = [
+                document.getElementById('dynamic-bg-1'),
+                document.getElementById('dynamic-bg-2'),
+                document.getElementById('dynamic-bg-3'),
+                document.getElementById('dynamic-bg-4'),
+                document.getElementById('dynamic-bg-5'),
+                document.getElementById('dynamic-bg-6'),
+                document.getElementById('dynamic-bg-7')
+            ];
+            const sections = [
+                document.getElementById('about'),
+                document.getElementById('education'),
+                document.getElementById('skills'),
+                document.getElementById('projects'),
+                document.getElementById('extracurricular'),
+                document.getElementById('contact')
+            ];
 
-            const updateBackgrounds = () => {
-                const scrollY = window.scrollY;
-                const viewHeight = window.innerHeight;
+            const updateBackgrounds = () => {
+                const scrollY = window.scrollY;
+                const viewHeight = window.innerHeight;
 
-                // Keep the first background visible until the user scrolls past the hero section
-                if (scrollY < 100) { 
-                    if (bgElements[0]) bgElements[0].style.opacity = 1;
-                    for (let i = 1; i < bgElements.length; i++) {
-                        if (bgElements[i]) bgElements[i].style.opacity = 0;
-                    }
-                    return;
-                }
+                if (scrollY < 100) { 
+                    if (bgElements[0]) bgElements[0].style.opacity = 1;
+                    for (let i = 1; i < bgElements.length; i++) {
+                        if (bgElements[i]) bgElements[i].style.opacity = 0;
+                    }
+                    return;
+                }
 
-                let activeSectionIndex = -1;
-                let minDistance = Infinity;
+                let activeSectionIndex = -1;
+                let minDistance = Infinity;
 
-                // Find the section currently closest to the viewport center
-                for (let i = 0; i < sections.length; i++) {
-                    if (!sections[i]) continue;
-                    const rect = sections[i].getBoundingClientRect();
-                    const distance = Math.abs(rect.top + rect.height / 2 - viewHeight / 2);
-                    
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        activeSectionIndex = i;
-                    }
-                }
+                for (let i = 0; i < sections.length; i++) {
+                    if (!sections[i]) continue;
+                    const rect = sections[i].getBoundingClientRect();
+                    const distance = Math.abs(rect.top + rect.height / 2 - viewHeight / 2);
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        activeSectionIndex = i;
+                    }
+                }
 
-                // Set the corresponding background opacity to 1 (index offset by +1 since bg-1 is for the hero)
-                bgElements.forEach((bg, index) => {
-                    if (!bg) return;
-                    if (index === activeSectionIndex + 1) {
-                        bg.style.opacity = 1;
-                    } else {
-                        bg.style.opacity = 0;
-                    }
-                });
-                
-                // Failsafe: if no section is active, default to the background corresponding to the closest section
-                let opacitySum = bgElements.reduce((acc, bg) => {
-                    if (!bg) return acc;
-                    return acc + parseFloat(bg.style.opacity || 0);
-                }, 0);
-                
-                if (opacitySum === 0) {
-                    const targetIndex = activeSectionIndex + 1;
-                    if (targetIndex >= 0 && targetIndex < bgElements.length && bgElements[targetIndex]) {
-                        bgElements[targetIndex].style.opacity = 1; 
-                    } else if (bgElements[0]) {
-                        bgElements[0].style.opacity = 1; 
-                    }
-                }
-            };
+                bgElements.forEach((bg, index) => {
+                    if (!bg) return;
+                    if (index === activeSectionIndex + 1) {
+                        bg.style.opacity = 1;
+                    } else {
+                        bg.style.opacity = 0;
+                    }
+                });
+                
+                let opacitySum = bgElements.reduce((acc, bg) => {
+                    if (!bg) return acc;
+                    return acc + parseFloat(bg.style.opacity || 0);
+                }, 0);
+                
+                if (opacitySum === 0) {
+                    const targetIndex = activeSectionIndex + 1;
+                    if (targetIndex >= 0 && targetIndex < bgElements.length && bgElements[targetIndex]) {
+                        bgElements[targetIndex].style.opacity = 1; 
+                    } else if (bgElements[0]) {
+                        bgElements[0].style.opacity = 1; 
+                    }
+                }
+            };
 
-            window.addEventListener('scroll', updateBackgrounds);
-            updateBackgrounds(); // Initial call to set correct background
-        });
-    </script>
+            window.addEventListener('scroll', updateBackgrounds);
+            updateBackgrounds(); // Initial call
+        });
+    </script>
 </body>
 </html>
+
