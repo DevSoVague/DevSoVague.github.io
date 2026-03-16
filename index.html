@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devavrath Sandeep - AI & Biomedical Engineering</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 100%);
+            position: relative; z-index: 10;
+        }
+        .typing-cursor {
+            border-right: .1em solid white;
+            animation: blink .7s steps(1) infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        /* Custom styles for your dark theme elements */
+        .form-input {
+            background-color: #2a2a2a; border-color: #4a4a4a;
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 2px #667eea; border-color: #667eea;
+        }
+
+        /* Dynamic Background Style */
+        .dynamic-background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+            background-size: cover; background-position: center center; filter: blur(8px);
+            transition: opacity 0.8s ease-in-out;
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: relative; z-index: 10;
+        }
+        header, footer {
+            background-color: #111111;
+            position: relative; z-index: 20;
+        }
+        
+        /* Summary Card Styles */
+        .summary-card {
+            background-color: #1a202c;
+            border: 1px solid #2d3748;
+            transition: all 0.3s ease;
+        }
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+            border-color: #667eea;
+        }
+
+        /* Form Container Styles */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #1a202c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid #2d3748;
+        }
+        .form-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            overflow: hidden;
+            display: block;
+        }
+        .form-note {
+            background-color: #2d3748;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        /* Scroll Animation Classes */
+        .scroll-animate {
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.9s ease-out;
+            will-change: transform, opacity;
+        }
+        .slide-in-left { transform: translateX(-100px); }
+        .slide-in-right { transform: translateX(100px); }
+        .fade-in-up { transform: translateY(40px); }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+
+        /* ── Orbit buttons ── */
+        .orbit-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        .orbit-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 22px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #fff;
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+            border: 1px solid rgba(251,146,60,0.35);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.25s, box-shadow 0.25s, border-color 0.25s;
+            z-index: 1;
+        }
+        .orbit-btn:hover {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            box-shadow: 0 0 22px rgba(249,115,22,0.55), 0 0 6px rgba(249,115,22,0.3);
+            border-color: rgba(251,146,60,0.8);
+        }
+        /* The two SVG orbit rings sit behind the button */
+        .orbit-ring {
+            position: absolute;
+            inset: -14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .orbit-wrap:hover .orbit-ring { opacity: 1; }
+        .orbit-ring svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+        /* ring 1 spins clockwise, ring 2 counter-clockwise */
+        .orbit-ring-1 { animation: orbit-cw  5s linear infinite; }
+        .orbit-ring-2 { animation: orbit-ccw 7s linear infinite; }
+        @keyframes orbit-cw  { to { transform: rotate( 360deg); } }
+        @keyframes orbit-ccw { to { transform: rotate(-360deg); } }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div id="dynamic-bg-1" class="dynamic-background" style="background-image: url('images/red_dust.jpg'); opacity: 1;"></div>
+    <div id="dynamic-bg-2" class="dynamic-background" style="background-image: url('images/water.png'); opacity: 0;"></div>
+    <div id="dynamic-bg-3" class="dynamic-background" style="background-image: url('images/crab.jpg'); opacity: 0;"></div>
+    <div id="dynamic-bg-4" class="dynamic-background" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'); opacity: 0;"></div>
+    <div id="dynamic-bg-5" class="dynamic-background" style="background-image: url('images/gargantula.png'); opacity: 0;"></div>
+
+    <header class="bg-[#111111] shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">Devavrath Sandeep</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="text-indigo-400 font-bold transition duration-300">About</a></li>
+                <li><a href="education.html" class="hover:text-indigo-400 transition duration-300">Education</a></li>
+                <li><a href="skills.html" class="hover:text-indigo-400 transition duration-300">Skills</a></li>
+                <li><a href="projects.html" class="hover:text-indigo-400 transition duration-300">Projects</a></li>
+                <li><a href="activities.html" class="hover:text-indigo-400 transition duration-300">Activities</a></li>
+                <li><a href="extracurricular.html" class="hover:text-indigo-400 transition duration-300">Leadership</a></li>
+                <li><a href="contact.html" class="hover:text-indigo-400 transition duration-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-bg text-white text-center py-20 md:py-32">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Devavrath Sandeep</h1>
+            <p class="text-lg md:text-2xl font-light">
+                I'm <span id="typing-effect" class="font-medium"></span><span class="typing-cursor"></span>
+            </p>
+            <div class="mt-10 flex items-center justify-center gap-5 flex-wrap">
+
+                <!-- CV button -->
+                <div class="orbit-wrap">
+                    <div class="orbit-ring orbit-ring-1">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(251,146,60,0.18)" stroke-width="0.8" stroke-dasharray="2 6"/>
+                            <!-- star dot -->
+                            <g transform="translate(50,4)">
+                                <polygon points="0,-4 1.2,-1.2 4,-1.2 2,0.8 2.8,3.8 0,2.2 -2.8,3.8 -2,0.8 -4,-1.2 -1.2,-1.2" fill="#fb923c"/>
+                            </g>
+                            <!-- extra sparkle dot opposite -->
+                            <g transform="translate(50,96)">
+                                <circle r="2.2" fill="#fdba74"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="orbit-ring orbit-ring-2">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(251,146,60,0.1)" stroke-width="0.5" stroke-dasharray="1 9"/>
+                            <!-- star dot -->
+                            <g transform="translate(4,50)">
+                                <polygon points="0,-3.5 1,-1 3.5,-1 1.8,0.7 2.5,3.3 0,1.9 -2.5,3.3 -1.8,0.7 -3.5,-1 -1,-1" fill="#f97316"/>
+                            </g>
+                            <g transform="translate(96,50)">
+                                <circle r="1.8" fill="#fed7aa"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <a href="https://drive.google.com/your-cv-link-here" target="_blank" rel="noopener noreferrer" class="orbit-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        CV
+                    </a>
+                </div>
+
+                <!-- Resume button -->
+                <div class="orbit-wrap">
+                    <div class="orbit-ring orbit-ring-1">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(251,146,60,0.18)" stroke-width="0.8" stroke-dasharray="2 6"/>
+                            <g transform="translate(50,4)">
+                                <polygon points="0,-4 1.2,-1.2 4,-1.2 2,0.8 2.8,3.8 0,2.2 -2.8,3.8 -2,0.8 -4,-1.2 -1.2,-1.2" fill="#fb923c"/>
+                            </g>
+                            <g transform="translate(50,96)">
+                                <circle r="2.2" fill="#fdba74"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="orbit-ring orbit-ring-2">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(251,146,60,0.1)" stroke-width="0.5" stroke-dasharray="1 9"/>
+                            <g transform="translate(4,50)">
+                                <polygon points="0,-3.5 1,-1 3.5,-1 1.8,0.7 2.5,3.3 0,1.9 -2.5,3.3 -1.8,0.7 -3.5,-1 -1,-1" fill="#f97316"/>
+                            </g>
+                            <g transform="translate(96,50)">
+                                <circle r="1.8" fill="#fed7aa"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <a href="https://drive.google.com/your-resume-link-here" target="_blank" rel="noopener noreferrer" class="orbit-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                        </svg>
+                        Resume
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+                <div class="text-lg text-gray-400 leading-relaxed space-y-4">
+                    <p>
+                        Welcome! I'm Devavrath Sandeep, an engineer passionate about the intersection of Artificial Intelligence and Biomedical Engineering. My goal is to use technology to create a tangible impact on human health.
+                    </p>
+        
+                    <p>    
+                        My passion lies in tackling complex challenges, whether it's building low-latency BCI systems for assistive robotics or analyzing large-scale genomic data on HPC clusters. I'm driven by a deep curiosity to understand the "why" and "how" behind the data to find solutions that can help people.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Education</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="education.html" class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Carnegie Mellon University</h3>
+                        <p class="text-indigo-400 font-semibold mb-3">MS, AI Engineering - Biomedical</p>
+                        <p class="text-gray-400 mb-4">Focusing on advanced machine learning, brain-computer interfaces, and AI systems development.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800">
+                        <span class="text-sm text-gray-400">Pittsburgh, PA | Expected Dec 2026</span>
+                    </div>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="education.html" class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Indian Institute of Technology (IIT) Jodhpur</h3>
+                        <p class="text-indigo-400 font-semibold mb-3">B.Tech, Bioengineering</p>
+                        <p class="text-gray-400 mb-4">Graduated in the top 1% of the department, with a specialization in the Science of Intelligence.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800">
+                        <span class="text-sm text-gray-400">Jodhpur, India | Graduated May 2025</span>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="education.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    View Full Education Details
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Core Competencies</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="skills.html" class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
+                    <h3 class="text-xl font-semibold text-white">AI & ML</h3>
+                    <p class="text-gray-400 mt-2">PyTorch, TensorFlow, Scikit-learn, MLOps, CNNs</p>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="skills.html" class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 100ms;">
+                    <h3 class="text-xl font-semibold text-white">Data & Platforms</h3>
+                    <p class="text-gray-400 mt-2">Python, SQL, AWS, HPC Clusters, Docker</p>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="skills.html" class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 200ms;">
+                    <h3 class="text-xl font-semibold text-white">Bio-Engineering</h3>
+                    <p class="text-gray-400 mt-2">BCI, Genomics, EEGLAB, Bioinformatics, Signal Processing</p>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="skills.html" class="summary-card rounded-lg p-6 scroll-animate fade-in-up" style="animation-delay: 300ms;">
+                    <h3 class="text-xl font-semibold text-white">Wet Lab</h3>
+                    <p class="text-gray-400 mt-2">MTT Assay, Flow Cytometry, PCR, Cell Culturing</p>
+                </a>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="skills.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    See All Skills & Coursework
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Featured Projects</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="projects.html" class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-left">
+                    <img src="images/proj-bci-robot.png" class="w-full h-56 object-cover opacity-75" alt="EMG Controlled Robot Project">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Wireless EMG-Controlled Assistive Robot</h3>
+                        <p class="text-gray-400">An EMG-based BCI system enabling users to control a robot solely through facial muscle activity.</p>
+                    </div>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="projects.html" class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate fade-in-up">
+                    <img src="images/proj-alzheimers-cnn.png" class="w-full h-56 object-cover opacity-75" alt="Alzheimer's Prediction Project">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Deep Learning for Alzheimer's Prediction</h3>
+                        <p class="text-gray-400">Built a CNN pipeline using MRI scans to predict Alzheimer's onset, achieving 97.34% accuracy.</p>
+                    </div>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="projects.html" class="summary-card rounded-lg shadow-lg overflow-hidden flex flex-col scroll-animate slide-in-right">
+                    <img src="images/proj-parkinsons-gwas.png" class="w-full h-56 object-cover opacity-75" alt="Parkinson's GWAS Project">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-white">Genetic Risk Score Pipeline for Parkinson's</h3>
+                        <p class="text-gray-400">Developed a bioinformatics pipeline on HPC clusters to estimate genetic risk for Parkinson's in Indian populations.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="projects.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="extracurricular" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="scroll-animate fade-in-up text-center mb-12">
+                <h2 class="text-3xl font-bold">Leadership & Activities</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6 rounded"></div>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="extracurricular.html" class="summary-card rounded-lg p-6 scroll-animate slide-in-left">
+                    <h3 class="text-xl font-semibold text-white">Technical Leadership</h3>
+                    <p class="text-gray-400 mt-2">Head of PROMETEO Technical Fest & TEDx, Coordinator for iGEM Society, and TA for Bioengineering.</p>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="extracurricular.html" class="summary-card rounded-lg p-6 scroll-animate fade-in-up">
+                    <h3 class="text-xl font-semibold text-white">Creative & Media</h3>
+                    <p class="text-gray-400 mt-2"> Secretary of Shutterbugs, the Photography Society and Executive member of the Biosciences and Bioengineering Society.</p>
+                </a>
+                <!-- MODIFICATION: Changed <div> to <a> and added href -->
+                <a href="extracurricular.html" class="summary-card rounded-lg p-6 scroll-animate slide-in-right">
+                    <h3 class="text-xl font-semibold text-white">Team & Competition</h3>
+                    <p class="text-gray-400 mt-2">Competed in Inter-IIT Sports (Basketball), Tech, and Cultural (Debate & Photography) Meets.</p>
+                </a>
+            </div>
+            <div class="text-center mt-12 scroll-animate fade-in-up">
+                <a href="extracurricular.html" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    See All Activities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 min-h-screen">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-animate fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold">Get In Touch 🤝</h1>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mt-6 rounded"></div>
+                <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+                    I'm always open to discussing new projects, research collaborations, or opportunities. Please use the form below to send me a message directly.
+                </p>
+            </div>
+            
+            <div class="form-container scroll-animate fade-in-up" style="animation-delay: 200ms;">
+                <div class="form-note mb-4 text-gray-300">
+                    This form is securely handled by Google Forms.
+                </div>
+                
+                <iframe 
+                    class="form-iframe" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSeMDXhLtLbrfI__YPJfJKoGYlkz_zJG7p6IIeAfFkFj_tFIug/viewform?usp=header" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2026 Devavrath Sandeep. All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/devavrath-sandeep/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Typing Effect ---
+            const typingText = document.getElementById('typing-effect');
+            if (typingText) {
+                const words = ["an AI Engineer.", "a Biomedical Innovator.", "a Researcher.", "a Problem Solver."];
+                let wordIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function type() {
+                    const currentWord = words[wordIndex];
+                    if (isDeleting) {
+                        typingText.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typingText.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    if (!isDeleting && charIndex === currentWord.length) {
+                        setTimeout(() => isDeleting = true, 2000);
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
+
+                    const typingSpeed = isDeleting ? 100 : 200;
+                    setTimeout(type, typingSpeed);
+                }
+                type();
+            }
+
+            // --- Scroll Animation ---
+            const observerOptions = {
+                root: null, rootMargin: '0px', threshold: 0.2
+            };
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+            elementsToAnimate.forEach(el => observer.observe(el));
+            
+            // --- Background Fade on Scroll (Handles 5 backgrounds) ---
+            const bgElements = [
+                document.getElementById('dynamic-bg-1'), // Hero & About
+                document.getElementById('dynamic-bg-2'), // Education & Skills
+                document.getElementById('dynamic-bg-3'), // Projects
+                document.getElementById('dynamic-bg-4'), // Activities
+                document.getElementById('dynamic-bg-5')  // Contact
+            ];
+            const sections = [
+                document.querySelector('.hero-bg'), // Start of page
+                document.getElementById('education'), 
+                document.getElementById('projects'),
+                document.getElementById('extracurricular'),
+                document.getElementById('contact') 
+            ];
+
+            const updateBackgrounds = () => {
+                const scrollY = window.scrollY;
+                const viewHeight = window.innerHeight;
+                
+                let activeBackgroundIndex = 0; 
+                const triggerOffset = viewHeight / 2; // Trigger transition when section is halfway up the screen
+
+                if (scrollY < sections[1].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 0; // Hero/About
+                } else if (scrollY < sections[2].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 1; // Education/Skills
+                } else if (scrollY < sections[3].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 2; // Projects
+                } else if (scrollY < sections[4].offsetTop - triggerOffset) {
+                    activeBackgroundIndex = 3; // Activities
+                } else {
+                    activeBackgroundIndex = 4; // Contact
+                }
+                
+                bgElements.forEach((bg, index) => {
+                    if (!bg) return;
+                    if (index === activeBackgroundIndex) { 
+                        bg.style.opacity = 1;
+                    } else {
+                        bg.style.opacity = 0;
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', updateBackgrounds);
+            updateBackgrounds(); // Initial call to set background based on initial scroll position
+        });
+    </script>
+</body>
+</html>
